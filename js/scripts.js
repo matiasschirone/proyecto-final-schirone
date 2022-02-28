@@ -15,9 +15,6 @@ const productoI = new Producto('Amplificador Marshall 100w', 30, 140000);
 
 const listadoProductos = [productoA, productoB, productoC];
 
-const resultado = producto.filter((el) => el.nombre.includes('Fender'))
- console.log(resultado)
-
 for(const producto of listadoProductos){
    console.log(producto.nombre + " " + producto.precio + " " + producto.stock)
 }
