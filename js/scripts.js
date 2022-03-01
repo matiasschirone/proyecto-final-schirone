@@ -23,8 +23,8 @@ const resultado4 = listadoProductos.filter((x) => x.nombre.includes('Ltd'));
 const resultado5 = listadoProductos.filter((x) => x.nombre.includes('Head'));
 const bajoPrecio = listadoProductos.filter((x) => x.precio <= 150000);
 const clase = listadoProductos.filter((x) => x.categoria === 'guitarra');
-const clase2 = listadoProductos.filter((x) => x.categoria === 'amplificador')
-const clase3 = listadoProductos.filter((x) => x.categoria === 'pedalera')
+const clase2 = listadoProductos.filter((x) => x.categoria === 'amplificador');
+const clase3 = listadoProductos.filter((x) => x.categoria === 'pedalera');
 console.log(resultado1);
 console.log(resultado2);
 console.log(resultado3);
@@ -36,7 +36,7 @@ console.log(clase2);
 console.log(clase3);
 
 for(const producto of listadoProductos){
-   console.log(producto.nombre + " " + producto.precio + " " + producto.stock + " " + producto.categoria)
+   console.log(producto.nombre + " " + producto.precio + " " + producto.stock + " " + producto.categoria);
 }
 
 listadoProductos.push( new Producto('Pedalera Zoom', 8, 30000, 'pedalera'));
@@ -142,7 +142,7 @@ else {
 }
 
 
-alert("¡Gracias por su compra!")
+alert("¡Gracias por su compra!");
 
 
 
