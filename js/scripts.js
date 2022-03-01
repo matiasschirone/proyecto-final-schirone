@@ -13,7 +13,15 @@ const productoG = new Producto('Pedalera Head rush', 60, 120000);
 const productoH = new Producto('Amplificador Fender Champion 60ac', 26, 90000);
 const productoI = new Producto('Amplificador Marshall 100w', 30, 140000);
 
-const listadoProductos = [productoA, productoB, productoC];
+const listadoProductos = [productoA, productoB, productoC, productoD, productoF, productoG, productoH, productoI];
+
+const resultado1 = listadoProductos.filter((x) => x.nombre.includes('Fender'))
+const resultado2 = listadoProductos.filter((x) => x.nombre.includes('Gibson'))
+const resultado3 = listadoProductos.filter((x) => x.nombre.includes('Cort'))
+const resultado4 = listadoProductos.filter((x) => x.nombre.includes('Ltd'))
+const resultado5 = listadoProductos.filter((x) => x.nombre.includes('Head'))
+
+
 
 for(const producto of listadoProductos){
    console.log(producto.nombre + " " + producto.precio + " " + producto.stock)
@@ -25,7 +33,6 @@ listadoProductos.push( new Producto('Amplificador Peavy', 6, 40000));
 let cantidadComprada;
 let precioTotalVenta = 0;
  
-
 alert(`Hola estos son los productos que te podemos ofrecer:
            ${productoA.nombre}
            ${productoB.nombre}
@@ -36,7 +43,6 @@ alert(`Hola estos son los productos que te podemos ofrecer:
            ${productoH.nombre}
            ${productoI.nombre}
 `)
-
 
 function stockInsuficiente(stock) {
    alert("No tenemos suficiente stock del producto, puede comprar hasta " + stock + ' unidades');
@@ -62,25 +68,27 @@ function cuotas() {
    alert("El precio de la cuota es de $" + precioCuota.toFixed(2));
 }
 
+
+
 let nombreCompra = prompt("Ingrese el nombre del producto a comprar:");
 
- 
 
-   if (nombreCompra.toLowerCase() === listadoProductos[0].nombre.toLowerCase()) {
+
+if (nombreCompra.toLowerCase() === listadoProductos[0].nombre.toLowerCase()) {
        compra(productoA.stock, productoA.precio, productoA.nombre);
-   }
-   else if (nombreCompra.toLowerCase() === listadoProductos[1].nombre.toLowerCase()) {
+}
+else if (nombreCompra.toLowerCase() === listadoProductos[1].nombre.toLowerCase()) {
        compra(productoB.stock, productoB.precio, productoB.nombre);
-   }
-   else if (nombreCompra.toLowerCase() === listadoProductos[2].nombre.toLowerCase()) {
+}
+else if (nombreCompra.toLowerCase() === listadoProductos[2].nombre.toLowerCase()) {
        compra(productoC.stock, productoC.precio, productoC.nombre);
  
-   }
-   else if (nombreCompra.toLowerCase() === listadoProductos[3].nombre.toLowerCase()) {
+}
+else if (nombreCompra.toLowerCase() === listadoProductos[3].nombre.toLowerCase()) {
       compra(productoD.stock, productoD.precio, productoD.nombre);
 
-  }
-  else if (nombreCompra.toLowerCase() === listadoProductos[4].nombre.toLowerCase()) {
+}
+else if (nombreCompra.toLowerCase() === listadoProductos[4].nombre.toLowerCase()) {
    compra(productoF.stock, productoF.precio, productoF.nombre);
 
 }
@@ -100,6 +108,16 @@ else if (nombreCompra.toLowerCase() === listadoProductos[7].nombre.toLowerCase()
        alert('No tenemos ese producto');
    }
 
+/*let seguirCompra = prompt("¿Desea seguir comprando? Si/No");
+
+if(seguirCompra.toLowerCase() === "si"){
+    nombreCompra();
+}
+else if(seguirCompra.toLowerCase() === "no"){
+    alert("¿Gracias por su compra")
+}*/
+
+
 
 let respuestaCuotas = prompt("¿Desea pagar en cuotas? Si/No");
  
@@ -113,14 +131,6 @@ else {
    alert("Ingrese una respuesta valida");
 }
 
-/*let seguirCompra = prompt("¿Desea seguir comprando? Si/No");
-
-if(seguirCompra.toLowerCase() === "si"){
-    nombreCompra();
-}
-else if(seguirCompra.toLowerCase() === "no"){
-    alert("¿Gracias por su compra")
-}*/
 
 alert("¡Gracias por su compra!")
 
