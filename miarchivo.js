@@ -117,6 +117,33 @@ baseDeDatos.push( new Producto('Pedalera gt5', 6, 3000, 'pedalera'));
 baseDeDatos.push( new Producto('Prs', 6, 90000, 'guitarra'));
 baseDeDatos.push( new Producto('Pedalera Boss', 6, 98000, 'pedalera'))*/
 
+const formulario = document.querySelector('#formulario');
+const tecla = document.querySelector('#tecla');
+const resultado = document.querySelector('#resultado');
+
+
+const filtrar = ()=>{
+    console.log(formulario.value);
+    //DomResultado.innerHTML  = '';
+    const texto = formulario.value.toLowerCase();
+
+for(producto of baseDeDatos){
+    let nombre = producto.nombre.toLowerCase();
+    if(nombre.indexOf(texto) !== -1){
+        //DomResultado.innerHTML += `
+        //<li>${producto.nombre} - valor:${producto.valor}</li>
+        //`
+    }
+}
+/*if(DomResultado.innerHTML === ''){
+    <li>Producto no encontrado...</li>*/
+}
+
+tecla.addEventListener('click', filtrar);
+formulario.addEventListener('keyup', filtrar);
+
+
+
 let carrito = [];
 const divisa = '$';
 const DomItems = document.querySelector('#items');
@@ -163,31 +190,6 @@ function renderizarProductos() {
         DomItems.appendChild(miNodo);
     });
 }
-
-const formulario = document.querySelector('#formulario');
-const tecla = document.querySelector('#tecla');
-const result = document.querySelector('#result')
-
-/*const fil = () =>{
-    //console.log(formulario.value);
-    result.innerHTML  = '';
-const texto = formulario.value.toLowerCase();
-
-for(producto of baseDeDatos){
-    let nombre = producto.nombre.toLowerCase();
-    if(nombre.indexOf(texto) !== -1){
-        result.innerHTML += `
-        <li>${producto.nombre} - valor:${producto.valor}</li>
-        `
-    }
-}
-if(result.innerHTML === ''){
-    <li>Producto no encontrado...</li>
-}
-}
-
-tecla.addEventListener('click', filtrar);
-formulario.addEventListener('keyup', filtrar)*/
 
 function anyadirProductoAlCarrito(evento) {
     carrito.push(evento.target.getAttribute('marcador'))
