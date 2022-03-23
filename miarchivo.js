@@ -1,27 +1,23 @@
-/*function Producto (nombre, stock, precio, categoria){
+/*function Producto (nombre, stock, precio, imagen, categoria){
     this.nombre = nombre;
     this.stock = stock;
     this.precio = precio;
-    this.categoria = categoria;
     this.imagen = imagen;
+    this.categoria = categoria;
  }
  
- const productoA = new Producto('Cort stratocaster', 10, 75800, 'guitarra', "./imagenes/descarga(1).jpg");
- const productoB = new Producto('Fender telecarter', 15, 180000, 'guitarra', './imagenes/images(2).jpg');
- const productoC = new Producto('Gibson lp', 3, 450000, 'guitarra');
- const productoD = new Producto('Ltd', 18, 120000, 'guitarra');
- const productoF = new Producto('Amplificador Marshall', 20, 125000, 'amplificador');
- const productoG = new Producto('Head rush', 60, 120000, 'pedalera');
- const productoH = new Producto('Amplificador Fender 60ac', 26, 90000, 'amplificador');
- const productoI = new Producto('Amplificador Fender 100w', 30, 140000, 'amplificador');
+ const productoA = new Producto('Cort stratocaster', 10, 75800, './imagenes/descarga1.jpg', 'guitarra');
+ const productoB = new Producto('Fender telecarter', 15, 180000, './imagenes/images2.jpg', 'guitarra');
+ const productoC = new Producto('Gibson lp', 3, 450000, './imagenes/images3.jpg', 'guitarra');
+ const productoD = new Producto('Ltd', 18, 120000, './imagenes/images.jpg', 'guitarra');
+ const productoF = new Producto('Amplificador Marshall', 20, 125000, './imagenes/descarga2.jpg', 'amplificador');
+ const productoG = new Producto('Head rush', 60, 120000, './imagenes/descarga5.jpg', 'pedalera');
+ const productoH = new Producto('Amplificador Fender 60ac', 26, 90000, './imagenes/images4.jpg', 'amplificador');
+ const productoI = new Producto('Amplificador Fender 100w', 30, 140000, './imagenes/images6.jpg', 'amplificador');
  
  const baseDeDatos = [productoA, productoB, productoC, productoD, productoF, productoG, productoH, productoI];*/
  
-/*const baseDeDatos = [{ id: 1, nombre: "Cort stratotaster", precio: 75800, stock: 10, imagen:'./imagenes/descarga(1).jpg' },
-{ id: 2, nombre: "Fender telecaster", precio: 180000, stock: 15, },
-{ id: 3, nombre: "Gibson LP", precio: 450000, stock: 3,   }];*/
-
-const baseDeDatos = [
+ const baseDeDatos = [
     {
         id: 1,
         nombre: 'cort stratocaster',
@@ -89,16 +85,15 @@ const baseDeDatos = [
     
 ];
 
-
-/*const resultado1 = listadoProductos.filter((x) => x.nombre.includes('Fender'));
-const resultado2 = listadoProductos.filter((x) => x.nombre.includes('Gibson'));
-const resultado3 = listadoProductos.filter((x) => x.nombre.includes('Cort'));
-const resultado4 = listadoProductos.filter((x) => x.nombre.includes('Ltd'));
-const resultado5 = listadoProductos.filter((x) => x.nombre.includes('Head'));
-const bajoPrecio = listadoProductos.filter((x) => x.precio <= 150000);
-const clase = listadoProductos.filter((x) => x.categoria === 'guitarra');
-const clase2 = listadoProductos.filter((x) => x.categoria === 'amplificador');
-const clase3 = listadoProductos.filter((x) => x.categoria === 'pedalera');
+const resultado1 = baseDeDatos.filter((x) => x.nombre.includes('Fender'));
+const resultado2 = baseDeDatos.filter((x) => x.nombre.includes('Gibson'));
+const resultado3 = baseDeDatos.filter((x) => x.nombre.includes('Cort'));
+const resultado4 = baseDeDatos.filter((x) => x.nombre.includes('Ltd'));
+const resultado5 = baseDeDatos.filter((x) => x.nombre.includes('Head'));
+const bajoPrecio = baseDeDatos.filter((x) => x.precio <= 150000);
+const clase = baseDeDatos.filter((x) => x.categoria === 'guitarra');
+const clase2 = baseDeDatos.filter((x) => x.categoria === 'amplificador');
+const clase3 = baseDeDatos.filter((x) => x.categoria === 'pedalera');
 console.log(resultado1);
 console.log(resultado2);
 console.log(resultado3);
@@ -107,26 +102,30 @@ console.log(resultado5);
 console.log(bajoPrecio);
 console.log(clase);
 console.log(clase2);
-console.log(clase3);*/
+console.log(clase3);
 
-/*for(const producto of listadoProductos){
+console.log( baseDeDatos?.categoria || "no existe");
+console.log( baseDeDatos?.nombre?.electronica || "no existe");
+
+for(const producto of baseDeDatos){
    console.log(producto.nombre + " " + producto.precio + " " + producto.stock + " " + producto.categoria);
-}*/
+}
 
-/*listadoProductos.push( new Producto('Pedalera Zoom', 8, 30000, 'pedalera'));
-listadoProductos.push( new Producto('Amplificador Peavy', 6, 40000, 'amplificador'));
-listadoProductos.push( new Producto('Pedalera gt5', 6, 3000, 'pedalera'));
-listadoProductos.push( new Producto('Prs', 6, 90000, 'guitarra'));
-listadoProductos.push( new Producto('Pedalera Boss', 6, 98000, 'pedalera'));*/
+/*baseDeDatos.push( new Producto('Pedalera Zoom', 8, 30000, 'pedalera'));
+baseDeDatos.push( new Producto('Amplificador Peavy', 6, 40000, 'amplificador'));
+baseDeDatos.push( new Producto('Pedalera gt5', 6, 3000, 'pedalera'));
+baseDeDatos.push( new Producto('Prs', 6, 90000, 'guitarra'));
+baseDeDatos.push( new Producto('Pedalera Boss', 6, 98000, 'pedalera'))*/
 
 let carrito = [];
 const divisa = '$';
-const DOMitems = document.querySelector('#items');
-const DOMcarrito = document.querySelector('#carrito');
-const DOMtotal = document.querySelector('#total');
-const DOMbotonVaciar = document.querySelector('#boton-vaciar');
-const DOMcuotas = document.querySelector('#boton-comprar');
-const DOMSelectCuotas = document.querySelector('#selectCuotas');
+const DomItems = document.querySelector('#items');
+const DomCarrito = document.querySelector('#carrito');
+const DomTotal = document.querySelector('#total');
+const DomBotonVaciar = document.querySelector('#boton-vaciar');
+const DomCuotas = document.querySelector('#boton-comprar');
+const DomSelectCuotas = document.querySelector('#selectCuotas');
+//const DomBusqueda = document.querySelector('#buscar');
 localStorage.setItem("productosAlmacenados", JSON.stringify(baseDeDatos));
 
 function renderizarProductos() {
@@ -161,24 +160,52 @@ function renderizarProductos() {
         miNodoCardBody.appendChild(miNodoPrecio);
         miNodoCardBody.appendChild(miNodoBoton);
         miNodo.appendChild(miNodoCardBody);
-        DOMitems.appendChild(miNodo);
+        DomItems.appendChild(miNodo);
     });
 }
+
+const formulario = document.querySelector('#formulario');
+const tecla = document.querySelector('#tecla');
+const result = document.querySelector('#result')
+
+/*const fil = () =>{
+    //console.log(formulario.value);
+    result.innerHTML  = '';
+const texto = formulario.value.toLowerCase();
+
+for(producto of baseDeDatos){
+    let nombre = producto.nombre.toLowerCase();
+    if(nombre.indexOf(texto) !== -1){
+        result.innerHTML += `
+        <li>${producto.nombre} - valor:${producto.valor}</li>
+        `
+    }
+}
+if(result.innerHTML === ''){
+    <li>Producto no encontrado...</li>
+}
+}
+
+tecla.addEventListener('click', filtrar);
+formulario.addEventListener('keyup', filtrar)*/
 
 function anyadirProductoAlCarrito(evento) {
     carrito.push(evento.target.getAttribute('marcador'))
     renderizarCarrito();
-    DOMbotonVaciar.disabled = false;
-    DOMcuotas.disabled = false;
+    DomBotonVaciar.disabled = false;
+    DomCuotas.disabled = false;
 }
 
 function renderizarCarrito() {
 
     if (carrito.length === 0) {
-        DOMcarrito.textContent = 'No hay productos en el carrito';
+        DomCarrito.textContent = 'No hay productos en el carrito';
+
+    carrito.length === 0 && console.log("no hay productos en el carrito");
+
 
     } else {
-        DOMcarrito.textContent = '';
+        DomCarrito.textContent = '';
 
         const opcion = document.createElement('option');
         opcion.value = 1;
@@ -187,8 +214,8 @@ function renderizarCarrito() {
         opcion.value = 2;
         opcion.textContent = '6 cuota de ${total / 6 }'
 
-        DOMSelectCuotas.appendChild(opcion);
-    }
+        DomSelectCuotas.appendChild(opcion);
+    };
 
     const carritoSinDuplicados = [...new Set(carrito)];
 
@@ -216,10 +243,10 @@ function renderizarCarrito() {
         miBoton.addEventListener('click', borrarItemCarrito);
 
         miNodo.appendChild(miBoton);
-        DOMcarrito.appendChild(miNodo);
+        DomCarrito.appendChild(miNodo);
     });
 
-    DOMtotal.textContent = calcularTotal();
+    DomTotal.textContent = calcularTotal();
 }
 
 function borrarItemCarrito(evento) {
@@ -233,8 +260,8 @@ function borrarItemCarrito(evento) {
     renderizarCarrito();
 
     if (carrito.length === 0) {
-        DOMbotonVaciar.disabled = true;
-        DOMcuotas.disabled = true;
+        DomBotonVaciar.disabled = true;
+        DomCuotas.disabled = true;
     }
 }
 
@@ -254,13 +281,13 @@ function vaciarCarrito() {
 
     carrito = [];
 
-    DOMbotonVaciar.disabled = true;
-    DOMcuotas.disabled = true;
+    DomBotonVaciar.disabled = true;
+    DomCuotas.disabled = true;
 
     renderizarCarrito();
 }
 
-DOMbotonVaciar.addEventListener('click', vaciarCarrito);
+DomBotonVaciar.addEventListener('click', vaciarCarrito);
 
 renderizarProductos();
 renderizarCarrito();
