@@ -118,30 +118,29 @@ baseDeDatos.push( new Producto('Prs', 6, 90000, 'guitarra'));
 baseDeDatos.push( new Producto('Pedalera Boss', 6, 98000, 'pedalera'))*/
 
 const formulario = document.querySelector('#formulario');
-const tecla = document.querySelector('#tecla');
+//const tecla = document.querySelector('#search');
 const resultado = document.querySelector('#resultado');
 
 
 const filtrar = ()=>{
     console.log(formulario.value);
-    //DomResultado.innerHTML  = '';
+    //resultado.innerHTML  = '';
     const texto = formulario.value.toLowerCase();
-
-for(producto of baseDeDatos){
+//formulario.querySelectorAll(baseDeDatos).forEach(el => el.textContent.toLocaleLowerCase().includes(formulario.value))
+/*for(producto of baseDeDatos){
     let nombre = producto.nombre.toLowerCase();
     if(nombre.indexOf(texto) !== -1){
-        //DomResultado.innerHTML += `
+        //resultado.innerHTML += `
         //<li>${producto.nombre} - valor:${producto.valor}</li>
         //`
-    }
+    }*/
 }
-/*if(DomResultado.innerHTML === ''){
-    <li>Producto no encontrado...</li>*/
-}
-
-tecla.addEventListener('click', filtrar);
+/*if(resultado.innerHTML === ''){
+    <li>Producto no encontrado...</li>
+}*/
+//formulario.querySelectorAll().forEach(el => el.textContent.toLocaleLowerCase().includes(formulario.value))
+search.addEventListener('click', filtrar);
 formulario.addEventListener('keyup', filtrar);
-
 
 
 let carrito = [];
@@ -150,9 +149,10 @@ const DomItems = document.querySelector('#items');
 const DomCarrito = document.querySelector('#carrito');
 const DomTotal = document.querySelector('#total');
 const DomBotonVaciar = document.querySelector('#boton-vaciar');
-const DomCuotas = document.querySelector('#boton-comprar');
+const DomComprar = document.querySelector('#boton-comprar');
 const DomSelectCuotas = document.querySelector('#selectCuotas');
-//const DomBusqueda = document.querySelector('#buscar');
+const DomBusqueda = document.querySelector('#search');
+//const DomComprar = document.querySelector('#')
 localStorage.setItem("productosAlmacenados", JSON.stringify(baseDeDatos));
 
 function renderizarProductos() {
@@ -252,6 +252,7 @@ function renderizarCarrito() {
 }
 
 function borrarItemCarrito(evento) {
+    
 
     const id = evento.target.dataset.item;
 
@@ -263,7 +264,7 @@ function borrarItemCarrito(evento) {
 
     if (carrito.length === 0) {
         DomBotonVaciar.disabled = true;
-        DomCuotas.disabled = true;
+        DomSelectCuotas.disabled = true;
     }
 }
 
@@ -284,12 +285,62 @@ function vaciarCarrito() {
     carrito = [];
 
     DomBotonVaciar.disabled = true;
-    DomCuotas.disabled = true;
+    DomSelectCuotas.disabled = true;
 
     renderizarCarrito();
 }
 
-DomBotonVaciar.addEventListener('click', vaciarCarrito);
+DomBotonVaciar.addEventListener('click', vaciarCarrito)
+DomBotonVaciar.addEventListener('click', vacio)
+function vacio(){
+Swal.fire({
+    title: 'estass seguro?',
+    text: "Estas por vaciar el carrito",
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#d33',
+    confirmButtonText: 'Si, borrar todo!'
+  }).then((result) => {
+    if (result.isConfirmed) {
+      Swal.fire(
+        'Borrado!',
+        'Los articulos del carrito han sido borrados.',
+        'success'
+      )
+    }
+  });
+}
+
+   
+    /*Swal.fire({
+        title: 'Está seguro de eliminar el producto?',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Sí, seguro',
+        cancelButtonText: 'No, no quiero'*/
+
+/*DomComprar.addEventListener('click', saludo);
+
+function saludo(){
+    swal.fire({
+        title: 'compra',
+        text: '¡Gracias por su compra!',
+        icon: 'error',
+        confirmButtonText: 'Cool'
+    })
+}*/
+function gracias(){
+    Swal.fire({
+        position: 'top-end',
+        icon: 'success',
+        title: 'Your work has been saved',
+        showConfirmButton: false,
+        timer: 1500
+      })
+    }
+
 
 renderizarProductos();
 renderizarCarrito();
+DomBotonComprar.addEventListener('click', gracias)
