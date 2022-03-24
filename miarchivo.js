@@ -330,6 +330,8 @@ function saludo(){
         confirmButtonText: 'Cool'
     })
 }*/
+
+/*DomBotonComprar.addEventListener('click', gracias)
 function gracias(){
     Swal.fire({
         position: 'top-end',
@@ -338,9 +340,9 @@ function gracias(){
         showConfirmButton: false,
         timer: 1500
       })
-    }
+    }*/
 
 
 renderizarProductos();
 renderizarCarrito();
-DomBotonComprar.addEventListener('click', gracias)
+
