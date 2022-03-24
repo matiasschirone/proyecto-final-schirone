@@ -334,7 +334,7 @@ function gracias(){
     Swal.fire({
         position: 'top-end',
         icon: 'success',
-        title: 'Your work has been saved',
+        text: 'Gracias po su compra',
         showConfirmButton: false,
         timer: 1500
       })
