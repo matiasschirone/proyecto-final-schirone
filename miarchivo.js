@@ -16,84 +16,83 @@
  const productoI = new Producto('Amplificador Fender 100w', 30, 140000, './imagenes/images6.jpg', 'amplificador');
  
  const baseDeDatos = [productoA, productoB, productoC, productoD, productoF, productoG, productoH, productoI];*/
- 
- const baseDeDatos = [
-    {
-        id: 1,
-        nombre: 'cort stratocaster',
-        stock: 10,
-        precio: 75800,
-        imagen: './imagenes/descarga1.jpg',
-        categoria: 'guitarra'
-    },
-    {
-        id: 2,
-        nombre: 'Fender telecarter',
-        stock: 3,
-        precio: 450000,
-        imagen: './imagenes/images2.jpg',
-        categoria: 'guitarra',
-    },
-    {
-        id: 3,
-        nombre: 'Gibson lp',
-        stock: 15,
-        precio: 450000,
-        imagen: './imagenes/images3.jpg',
-        categoria: 'guitarra',
-    },
-    {
-        id: 4,
-        nombre: 'Ltd',
-        stock: 18,
-        precio: 120000,
-        imagen: './imagenes/images.jpg',
-        categoria: 'guitarra',
-    },
-    {
-        id: 5,
-        nombre: 'Amplificador Marshall',
-        stock: 20,
-        precio: 125000,
-        imagen: './imagenes/descarga2.jpg',
-        categoria: 'amplificador'
-    },
-    {
-        id: 6,
-        nombre: 'Head rush',
-        stock: 60,
-        precio: 120000,
-        imagen: './imagenes/descarga5.jpg',
-        categoria: 'pedalera'
-    },
-    {
-        id: 7,
-        nombre: 'Amplificador Fender 60ac',
-        stock: 26,
-        precio: 90000,
-        imagen: './imagenes/images4.jpg',
-        categoria: 'amplicador'
-    },
-    {
-        id: 8,
-        nombre: 'Amplificador Fender 100',
-        stock: 30,
-        precio: 140000,
-        imagen: './imagenes/images6.jpg',
-        categoria: 'amplicador'
-    },
-    
+
+const baseDeDatos = [
+  {
+    id: 1,
+    nombre: "cort stratocaster",
+    stock: 10,
+    precio: 75800,
+    imagen: "./imagenes/descarga1.jpg",
+    categoria: "guitarra",
+  },
+  {
+    id: 2,
+    nombre: "Fender telecarter",
+    stock: 3,
+    precio: 450000,
+    imagen: "./imagenes/images2.jpg",
+    categoria: "guitarra",
+  },
+  {
+    id: 3,
+    nombre: "Gibson lp",
+    stock: 15,
+    precio: 450000,
+    imagen: "./imagenes/images3.jpg",
+    categoria: "guitarra",
+  },
+  {
+    id: 4,
+    nombre: "Ltd",
+    stock: 18,
+    precio: 120000,
+    imagen: "./imagenes/images.jpg",
+    categoria: "guitarra",
+  },
+  {
+    id: 5,
+    nombre: "Amplificador Marshall",
+    stock: 20,
+    precio: 125000,
+    imagen: "./imagenes/descarga2.jpg",
+    categoria: "amplificador",
+  },
+  {
+    id: 6,
+    nombre: "Head rush",
+    stock: 60,
+    precio: 120000,
+    imagen: "./imagenes/descarga5.jpg",
+    categoria: "pedalera",
+  },
+  {
+    id: 7,
+    nombre: "Amplificador Fender 60ac",
+    stock: 26,
+    precio: 90000,
+    imagen: "./imagenes/images4.jpg",
+    categoria: "amplicador",
+  },
+  {
+    id: 8,
+    nombre: "Amplificador Fender 100",
+    stock: 30,
+    precio: 140000,
+    imagen: "./imagenes/images6.jpg",
+    categoria: "amplicador",
+  },
 ];
 
-const resultado1 = baseDeDatos.filter((x) => x.nombre.includes('Fender'));
-const resultado2 = baseDeDatos.filter((x) => x.nombre.includes('Gibson'));
-const resultado3 = baseDeDatos.filter((x) => x.nombre.includes('Cort'));
-const resultado4 = baseDeDatos.filter((x) => x.nombre.includes('Ltd'));
-const resultado5 = baseDeDatos.filter((x) => x.nombre.includes('Head'));
+const resultado1 = baseDeDatos.filter((x) => x.nombre.includes("Fender"));
+const resultado2 = baseDeDatos.filter((x) => x.nombre.includes("Gibson"));
+const resultado3 = baseDeDatos.filter((x) => x.nombre.includes("Cort"));
+const resultado4 = baseDeDatos.filter((x) => x.nombre.includes("Ltd"));
+const resultado5 = baseDeDatos.filter((x) => x.nombre.includes("Head"));
 const bajoPrecio = baseDeDatos.filter((x) => x.precio <= 150000);
-const clase = baseDeDatos.filter((x) => x.categoria === 'guitarra');
-const clase2 = baseDeDatos.filter((x) => x.categoria === 'amplificador');
-const clase3 = baseDeDatos.filter((x) => x.categoria === 'pedalera');
+const clase = baseDeDatos.filter((x) => x.categoria === "guitarra");
+const clase2 = baseDeDatos.filter((x) => x.categoria === "amplificador");
+const clase3 = baseDeDatos.filter((x) => x.categoria === "pedalera");
 console.log(resultado1);
 console.log(resultado2);
 console.log(resultado3);
@@ -104,11 +103,19 @@ console.log(clase);
 console.log(clase2);
 console.log(clase3);
 
-console.log( baseDeDatos?.categoria || "no existe");
-console.log( baseDeDatos?.nombre?.electronica || "no existe");
+console.log(baseDeDatos?.categoria || "no existe");
+console.log(baseDeDatos?.nombre?.electronica || "no existe");
 
-for(const producto of baseDeDatos){
-   console.log(producto.nombre + " " + producto.precio + " " + producto.stock + " " + producto.categoria);
+for (const producto of baseDeDatos) {
+  console.log(
+    producto.nombre +
+      " " +
+      producto.precio +
+      " " +
+      producto.stock +
+      " " +
+      producto.categoria
+  );
 }
 
 /*baseDeDatos.push( new Producto('Pedalera Zoom', 8, 30000, 'pedalera'));
@@ -117,170 +124,193 @@ baseDeDatos.push( new Producto('Pedalera gt5', 6, 3000, 'pedalera'));
 baseDeDatos.push( new Producto('Prs', 6, 90000, 'guitarra'));
 baseDeDatos.push( new Producto('Pedalera Boss', 6, 98000, 'pedalera'))*/
 
-const formulario = document.querySelector('#formulario');
+const formulario = document.querySelector("#formulario");
 //const tecla = document.querySelector('#search');
-const resultado = document.querySelector('#resultado');
+const resultado = document.querySelector("#resultado");
 
-
-const filtrar = ()=>{
-    console.log(formulario.value);
-    //resultado.innerHTML  = '';
-    const texto = formulario.value.toLowerCase();
-//formulario.querySelectorAll(baseDeDatos).forEach(el => el.textContent.toLocaleLowerCase().includes(formulario.value))
-/*for(producto of baseDeDatos){
+const filtrar = () => {
+  console.log(formulario.value);
+  //resultado.innerHTML  = '';
+  const texto = formulario.value.toLowerCase();
+  //formulario.querySelectorAll(baseDeDatos).forEach(el => el.textContent.toLocaleLowerCase().includes(formulario.value))
+  /*for(producto of baseDeDatos){
     let nombre = producto.nombre.toLowerCase();
     if(nombre.indexOf(texto) !== -1){
         //resultado.innerHTML += `
         //<li>${producto.nombre} - valor:${producto.valor}</li>
         //`
     }*/
-}
+};
 /*if(resultado.innerHTML === ''){
     <li>Producto no encontrado...</li>
 }*/
 //formulario.querySelectorAll().forEach(el => el.textContent.toLocaleLowerCase().includes(formulario.value))
-search.addEventListener('click', filtrar);
-formulario.addEventListener('keyup', filtrar);
-
+search.addEventListener("click", filtrar);
+formulario.addEventListener("keyup", filtrar);
 
 let carrito = [];
-const divisa = '$';
-const DomItems = document.querySelector('#items');
-const DomCarrito = document.querySelector('#carrito');
-const DomTotal = document.querySelector('#total');
-const DomBotonVaciar = document.querySelector('#boton-vaciar');
-const DomComprar = document.querySelector('#boton-comprar');
-const DomSelectCuotas = document.querySelector('#selectCuotas');
-const DomBusqueda = document.querySelector('#search');
+const divisa = "$";
+const DomItems = document.querySelector("#items");
+const DomCarrito = document.querySelector("#carrito");
+const DomTotal = document.querySelector("#total");
+const DomBotonVaciar = document.querySelector("#boton-vaciar");
+const DomComprar = document.querySelector("#boton-comprar");
+const DomSelectCuotas = document.querySelector("#selectCuotas");
+const DomBusqueda = document.querySelector("#search");
 //const DomComprar = document.querySelector('#')
 localStorage.setItem("productosAlmacenados", JSON.stringify(baseDeDatos));
 
 function renderizarProductos() {
-    baseDeDatos.forEach((info) => {
+  baseDeDatos.forEach((info) => {
+    const miNodo = document.createElement("div");
+    miNodo.classList.add("card", "col-sm-3", "mx-2", "my-2");
 
-        const miNodo = document.createElement('div');
-        miNodo.classList.add('card', 'col-sm-3', 'mx-2', 'my-2');
+    const miNodoCardBody = document.createElement("div");
+    miNodoCardBody.classList.add("card-body");
 
-        const miNodoCardBody = document.createElement('div');
-        miNodoCardBody.classList.add('card-body');
+    const miNodoTitle = document.createElement("h3");
+    miNodoTitle.classList.add("card-title");
+    miNodoTitle.textContent = info.nombre;
 
-        const miNodoTitle = document.createElement('h3');
-        miNodoTitle.classList.add('card-title');
-        miNodoTitle.textContent = info.nombre;
+    const miNodoImagen = document.createElement("img");
+    miNodoImagen.classList.add("img-fluid");
+    miNodoImagen.setAttribute("src", info.imagen);
 
-        const miNodoImagen = document.createElement('img');
-        miNodoImagen.classList.add('img-fluid');
-        miNodoImagen.setAttribute('src', info.imagen);
+    const miNodoPrecio = document.createElement("p");
+    miNodoPrecio.classList.add("card-text");
+    miNodoPrecio.textContent = `${divisa}${info.precio}`;
 
-        const miNodoPrecio = document.createElement('p');
-        miNodoPrecio.classList.add('card-text');
-        miNodoPrecio.textContent = `${divisa}${info.precio}`;
+    const miNodoBoton = document.createElement("button");
+    miNodoBoton.classList.add("btn", "btn-primary");
+    miNodoBoton.textContent = "agregar";
+    miNodoBoton.setAttribute("marcador", info.id);
+    miNodoBoton.addEventListener("click", anyadirProductoAlCarrito);
 
-        const miNodoBoton = document.createElement('button');
-        miNodoBoton.classList.add('btn', 'btn-primary');
-        miNodoBoton.textContent = 'agregar';
-        miNodoBoton.setAttribute('marcador', info.id);
-        miNodoBoton.addEventListener('click', anyadirProductoAlCarrito);
-
-        miNodoCardBody.appendChild(miNodoImagen);
-        miNodoCardBody.appendChild(miNodoTitle);
-        miNodoCardBody.appendChild(miNodoPrecio);
-        miNodoCardBody.appendChild(miNodoBoton);
-        miNodo.appendChild(miNodoCardBody);
-        DomItems.appendChild(miNodo);
-    });
+    miNodoCardBody.appendChild(miNodoImagen);
+    miNodoCardBody.appendChild(miNodoTitle);
+    miNodoCardBody.appendChild(miNodoPrecio);
+    miNodoCardBody.appendChild(miNodoBoton);
+    miNodo.appendChild(miNodoCardBody);
+    DomItems.appendChild(miNodo);
+  });
 }
 
 function anyadirProductoAlCarrito(evento) {
-    carrito.push(evento.target.getAttribute('marcador'))
-    renderizarCarrito();
-    DomBotonVaciar.disabled = false;
-    DomCuotas.disabled = false;
+  carrito.push(evento.target.getAttribute("marcador"));
+  renderizarCarrito();
+  DomBotonVaciar.disabled = false;
+  DomCuotas.disabled = false;
 }
 
 function renderizarCarrito() {
-
-    if (carrito.length === 0) {
-        DomCarrito.textContent = 'No hay productos en el carrito';
+  if (carrito.length === 0) {
+    DomCarrito.textContent = "No hay productos en el carrito";
 
     carrito.length === 0 && console.log("no hay productos en el carrito");
+  } else {
+    DomCarrito.textContent = "";
 
+    const opcion = document.createElement("option");
+    opcion.value = 1;
+    opcion.textContent = "3 cuota de ${total / 3 }";
 
-    } else {
-        DomCarrito.textContent = '';
+    opcion.value = 2;
+    opcion.textContent = "6 cuota de ${total / 6 }";
 
-        const opcion = document.createElement('option');
-        opcion.value = 1;
-        opcion.textContent = '3 cuota de ${total / 3 }'
+    DomSelectCuotas.appendChild(opcion);
+  }
 
-        opcion.value = 2;
-        opcion.textContent = '6 cuota de ${total / 6 }'
+  const carritoSinDuplicados = [...new Set(carrito)];
 
-        DomSelectCuotas.appendChild(opcion);
-    };
-
-    const carritoSinDuplicados = [...new Set(carrito)];
-
-    carritoSinDuplicados.forEach((item) => {
-
-        const miItem = baseDeDatos.filter((itemBaseDatos) => {
-
-            return itemBaseDatos.id === parseInt(item);
-        });
-
-        const numeroUnidadesItem = carrito.reduce((total, itemId) => {
-
-            return itemId === item ? total += 1 : total;
-        }, 0);
-
-        const miNodo = document.createElement('li');
-        miNodo.classList.add('list-group-item', 'd-flex', 'justify-content-between', 'align-items-center');
-        miNodo.textContent = `${numeroUnidadesItem} x ${miItem[0].nombre} - ${divisa}${miItem[0].precio}`;
-
-        const miBoton = document.createElement('button');
-        miBoton.classList.add('btn', 'btn-danger',);
-        miBoton.textContent = 'X';
-        miBoton.style.marginLeft = '1rem';
-        miBoton.dataset.item = item;
-        miBoton.addEventListener('click', borrarItemCarrito);
-
-        miNodo.appendChild(miBoton);
-        DomCarrito.appendChild(miNodo);
+  carritoSinDuplicados.forEach((item) => {
+    const miItem = baseDeDatos.filter((itemBaseDatos) => {
+      return itemBaseDatos.id === parseInt(item);
     });
 
-    DomTotal.textContent = calcularTotal();
+    const numeroUnidadesItem = carrito.reduce((total, itemId) => {
+      return itemId === item ? (total += 1) : total;
+    }, 0);
+
+    const miNodo = document.createElement("li");
+    miNodo.classList.add(
+      "list-group-item",
+      "d-flex",
+      "justify-content-between",
+      "align-items-center"
+    );
+    miNodo.textContent = `${numeroUnidadesItem} x ${miItem[0].nombre} - ${divisa}${miItem[0].precio}`;
+
+    const miBoton = document.createElement("button");
+    miBoton.classList.add("btn", "btn-danger");
+    miBoton.textContent = "X";
+    miBoton.style.marginLeft = "1rem";
+    miBoton.dataset.item = item;
+    miBoton.addEventListener("click", borrarItemCarrito);
+
+    miNodo.appendChild(miBoton);
+    DomCarrito.appendChild(miNodo);
+  });
+
+  DomTotal.textContent = calcularTotal();
 }
 
 function borrarItemCarrito(evento) {
-    
+  const id = evento.target.dataset.item;
 
-    const id = evento.target.dataset.item;
+  carrito = carrito.filter((carritoId) => {
+    return carritoId !== id;
+  });
 
-    carrito = carrito.filter((carritoId) => {
-        return carritoId !== id;
-    });
+  renderizarCarrito();
 
-    renderizarCarrito();
-
-    if (carrito.length === 0) {
-        DomBotonVaciar.disabled = true;
-        DomSelectCuotas.disabled = true;
-    }
+  if (carrito.length === 0) {
+    DomBotonVaciar.disabled = true;
+    DomSelectCuotas.disabled = true;
+  }
 }
 
 function calcularTotal() {
+  return carrito
+    .reduce((total, item) => {
+      const miItem = baseDeDatos.filter((itemBaseDatos) => {
+        return itemBaseDatos.id === parseInt(item);
+      });
 
-    return carrito.reduce((total, item) => {
-
-        const miItem = baseDeDatos.filter((itemBaseDatos) => {
-            return itemBaseDatos.id === parseInt(item);
-        });
-
-        return total + miItem[0].precio;
-    }, 0).toFixed(2);
+      return total + miItem[0].precio;
+    }, 0)
+    .toFixed(2);
 }
 
 function vaciarCarrito() {
+    
+  Swal.fire({
+    title: "estas seguro?",
+    text: "Estas por vaciar el carrito",
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonColor: "#3085d6",
+    cancelButtonColor: "#d33",
+    confirmButtonText: "Si, borrar todo!",
+  }).then((result) => {
+    if (result.isConfirmed) {
+      carrito = [];
+      DomBotonVaciar.disabled = true;
+      DomSelectCuotas.disabled = true;
+      renderizarCarrito();
+
+      Swal.fire(
+        "Borrado!",
+        "Los articulos del carrito han sido borrados.",
+        "success"
+      );
+    }
+  });
+}
+
+DomBotonVaciar.addEventListener('click', vaciarCarrito)
+
+
+/*function vaciarCarrito() {
 
     carrito = [];
 
@@ -294,7 +324,7 @@ DomBotonVaciar.addEventListener('click', vaciarCarrito)
 DomBotonVaciar.addEventListener('click', vacio)
 function vacio(){
 Swal.fire({
-    title: 'estass seguro?',
+    title: 'estas seguro?',
     text: "Estas por vaciar el carrito",
     icon: 'warning',
     showCancelButton: true,
@@ -310,10 +340,9 @@ Swal.fire({
       )
     }
   });
-}
+}*/
 
-   
-    /*Swal.fire({
+/*Swal.fire({
         title: 'Está seguro de eliminar el producto?',
         icon: 'warning',
         showCancelButton: true,
@@ -342,7 +371,5 @@ function gracias(){
       })
     }*/
 
-
 renderizarProductos();
 renderizarCarrito();
-
