@@ -1,4 +1,4 @@
-/*function Producto (nombre, stock, precio, imagen, categoria){
+function Producto (nombre, stock, precio, imagen, categoria){
     this.nombre = nombre;
     this.stock = stock;
     this.precio = precio;
@@ -6,7 +6,7 @@
     this.categoria = categoria;
  }
  
- const productoA = new Producto('Cort stratocaster', 10, 75800, './imagenes/descarga1.jpg', 'guitarra');
+ /*const productoA = new Producto('Cort stratocaster', 10, 75800, './imagenes/descarga1.jpg', 'guitarra');
  const productoB = new Producto('Fender telecarter', 15, 180000, './imagenes/images2.jpg', 'guitarra');
  const productoC = new Producto('Gibson lp', 3, 450000, './imagenes/images3.jpg', 'guitarra');
  const productoD = new Producto('Ltd', 18, 120000, './imagenes/images.jpg', 'guitarra');
@@ -17,7 +17,7 @@
  
  const baseDeDatos = [productoA, productoB, productoC, productoD, productoF, productoG, productoH, productoI];*/
 
-const baseDeDatos = [
+/*const baseDeDatos = [
   {
     id: 1,
     nombre: "cort stratocaster",
@@ -82,9 +82,18 @@ const baseDeDatos = [
     imagen: "./imagenes/images6.jpg",
     categoria: "amplicador",
   },
-];
+];*/
 
-const resultado1 = baseDeDatos.filter((x) => x.nombre.includes("Fender"));
+let baseDeDatos = []
+
+fetch('data.json')
+.then((resp) => resp.json())
+.then(data => data.forEach((producto) =>
+                               baseDeDatos.push(new Producto(producto.nombre, producto.stock, producto.precio, producto.imagen, producto.categoria))))
+
+console.log(baseDeDatos)                               
+
+/*const resultado1 = baseDeDatos.filter((x) => x.nombre.includes("Fender"));
 const resultado2 = baseDeDatos.filter((x) => x.nombre.includes("Gibson"));
 const resultado3 = baseDeDatos.filter((x) => x.nombre.includes("Cort"));
 const resultado4 = baseDeDatos.filter((x) => x.nombre.includes("Ltd"));
@@ -104,7 +113,7 @@ console.log(clase2);
 console.log(clase3);
 
 console.log(baseDeDatos?.categoria || "no existe");
-console.log(baseDeDatos?.nombre?.electronica || "no existe");
+console.log(baseDeDatos?.nombre?.electronica || "no existe");*/
 
 for (const producto of baseDeDatos) {
   console.log(
@@ -125,10 +134,10 @@ baseDeDatos.push( new Producto('Prs', 6, 90000, 'guitarra'));
 baseDeDatos.push( new Producto('Pedalera Boss', 6, 98000, 'pedalera'))*/
 
 const formulario = document.querySelector("#formulario");
-//const tecla = document.querySelector('#search');
+//const search = document.querySelector('#search');
 const resultado = document.querySelector("#resultado");
 
-const filtrar = () => {
+function filtrar(){
   console.log(formulario.value);
   //resultado.innerHTML  = '';
   const texto = formulario.value.toLowerCase();
@@ -158,7 +167,7 @@ const DomComprar = document.querySelector("#boton-comprar");
 const DomSelectCuotas = document.querySelector("#selectCuotas");
 const DomBusqueda = document.querySelector("#search");
 //const DomComprar = document.querySelector('#')
-localStorage.setItem("productosAlmacenados", JSON.stringify(baseDeDatos));
+//localStorage.setItem("productosAlmacenados", JSON.stringify(baseDeDatos));
 
 function renderizarProductos() {
   baseDeDatos.forEach((info) => {
@@ -282,7 +291,6 @@ function calcularTotal() {
 }
 
 function vaciarCarrito() {
-    
   Swal.fire({
     title: "estas seguro?",
     text: "Estas por vaciar el carrito",
@@ -307,51 +315,9 @@ function vaciarCarrito() {
   });
 }
 
-DomBotonVaciar.addEventListener('click', vaciarCarrito)
+DomBotonVaciar.addEventListener("click", vaciarCarrito);
 
-
-/*function vaciarCarrito() {
-
-    carrito = [];
-
-    DomBotonVaciar.disabled = true;
-    DomSelectCuotas.disabled = true;
-
-    renderizarCarrito();
-}
-
-DomBotonVaciar.addEventListener('click', vaciarCarrito)
-DomBotonVaciar.addEventListener('click', vacio)
-function vacio(){
-Swal.fire({
-    title: 'estas seguro?',
-    text: "Estas por vaciar el carrito",
-    icon: 'warning',
-    showCancelButton: true,
-    confirmButtonColor: '#3085d6',
-    cancelButtonColor: '#d33',
-    confirmButtonText: 'Si, borrar todo!'
-  }).then((result) => {
-    if (result.isConfirmed) {
-      Swal.fire(
-        'Borrado!',
-        'Los articulos del carrito han sido borrados.',
-        'success'
-      )
-    }
-  });
-}*/
-
-/*Swal.fire({
-        title: 'Está seguro de eliminar el producto?',
-        icon: 'warning',
-        showCancelButton: true,
-        confirmButtonText: 'Sí, seguro',
-        cancelButtonText: 'No, no quiero'*/
-
-/*DomComprar.addEventListener('click', saludo);
-
-function saludo(){
+/*function saludo(){
     swal.fire({
         title: 'compra',
         text: '¡Gracias por su compra!',
@@ -360,16 +326,17 @@ function saludo(){
     })
 }*/
 
-/*DomBotonComprar.addEventListener('click', gracias)
-function gracias(){
-    Swal.fire({
-        position: 'top-end',
-        icon: 'success',
-        text: 'Gracias po su compra',
-        showConfirmButton: false,
-        timer: 1500
-      })
-    }*/
+/*function gracias() {
+  Swal.fire({
+    position: "top-end",
+    icon: "success",
+    text: "Gracias po su compra",
+    showConfirmButton: false,
+    timer: 1500,
+  });
+}
+
+DomBotonComprar.addEventListener("click", gracias);*/
 
 renderizarProductos();
 renderizarCarrito();
