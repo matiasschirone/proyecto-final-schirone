@@ -84,14 +84,7 @@ function Producto (nombre, stock, precio, imagen, categoria){
   },
 ];*/
 
-let baseDeDatos = []
-
-fetch('data.json')
-.then((resp) => resp.json())
-.then(data => data.forEach((producto) =>
-                               baseDeDatos.push(new Producto(producto.nombre, producto.stock, producto.precio, producto.imagen, producto.categoria))))
-
-console.log(baseDeDatos)                               
+const obtenerDatos = fetch('data.json').then((resp) => resp.json())
 
 /*const resultado1 = baseDeDatos.filter((x) => x.nombre.includes("Fender"));
 const resultado2 = baseDeDatos.filter((x) => x.nombre.includes("Gibson"));
@@ -115,7 +108,7 @@ console.log(clase3);
 console.log(baseDeDatos?.categoria || "no existe");
 console.log(baseDeDatos?.nombre?.electronica || "no existe");*/
 
-for (const producto of baseDeDatos) {
+/*for (const producto of baseDeDatos) {
   console.log(
     producto.nombre +
       " " +
@@ -125,7 +118,7 @@ for (const producto of baseDeDatos) {
       " " +
       producto.categoria
   );
-}
+}*/
 
 /*baseDeDatos.push( new Producto('Pedalera Zoom', 8, 30000, 'pedalera'));
 baseDeDatos.push( new Producto('Amplificador Peavy', 6, 40000, 'amplificador'));
@@ -170,7 +163,9 @@ const DomBusqueda = document.querySelector("#search");
 //localStorage.setItem("productosAlmacenados", JSON.stringify(baseDeDatos));
 
 function renderizarProductos() {
-  baseDeDatos.forEach((info) => {
+ 
+  obtenerDatos.then(productos => productos.forEach((info) => {
+
     const miNodo = document.createElement("div");
     miNodo.classList.add("card", "col-sm-3", "mx-2", "my-2");
 
@@ -201,7 +196,7 @@ function renderizarProductos() {
     miNodoCardBody.appendChild(miNodoBoton);
     miNodo.appendChild(miNodoCardBody);
     DomItems.appendChild(miNodo);
-  });
+  }));
 }
 
 function anyadirProductoAlCarrito(evento) {
@@ -232,8 +227,8 @@ function renderizarCarrito() {
   const carritoSinDuplicados = [...new Set(carrito)];
 
   carritoSinDuplicados.forEach((item) => {
-    const miItem = baseDeDatos.filter((itemBaseDatos) => {
-      return itemBaseDatos.id === parseInt(item);
+    const miItem = obtenerDatos.productos.filter((itemObtenerDatos) => {
+      return itemObtenerDatos.id === parseInt(item);
     });
 
     const numeroUnidadesItem = carrito.reduce((total, itemId) => {
@@ -281,8 +276,8 @@ function borrarItemCarrito(evento) {
 function calcularTotal() {
   return carrito
     .reduce((total, item) => {
-      const miItem = baseDeDatos.filter((itemBaseDatos) => {
-        return itemBaseDatos.id === parseInt(item);
+      const miItem = obtenerDatos.filter((itemObtenerDatos) => {
+        return itemObtenerDatos.id === parseInt(item);
       });
 
       return total + miItem[0].precio;
